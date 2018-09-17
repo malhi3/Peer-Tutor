@@ -1,0 +1,249 @@
+html, body {
+    font-family: Raleway;
+    padding: 0;
+    margin: 0;
+}
+
+* {
+    user-select: none;
+    padding: 0;
+    margin: 0;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+img {
+    pointer-events: none;
+}
+
+*:focus {
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* -------------------------------------------------------------------------------------------------------------- */
+
+#login-box {
+    width: 350px;
+    height: 400px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(247, 247, 247);
+    z-index: 2000;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: block;
+}
+
+#login-box #logo-login {
+    width: 95px;
+    margin: 50px auto;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 13px;
+    border-bottom: 5px solid royalblue;
+}
+
+#login-box p {
+    font-size: 22px;
+    font-weight: 700;
+    padding-bottom: 12px;
+}
+
+#login-box #back {
+    font-size: 13px;
+    font-weight: 500;
+    padding-top: 7px;
+    color: #888787;
+}
+
+#login-box #sign-in-name {
+    visibility: hidden;
+}
+
+#login-box #close-login-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+    color: #888787;
+    cursor: pointer;
+}
+
+#login-box #sign-in-name, #login-box #sign-in-email, #login-box #sign-in-pwd {
+    position: relative;
+    width: 90%;
+    height: 42px;
+    border: none;
+    background: none;
+    border-bottom: 1px solid rgb(236, 236, 236);
+    font-size: 15px;
+    font-weight: 600;
+    color: rgb(77, 77, 77);
+    font-family: Raleway;
+    background-color: none;
+}
+
+#login-box #sign-in-name::placeholder, #login-box #sign-in-email::placeholder, #login-box #sign-in-pwd::placeholder {
+    opacity: 1;
+    font-weight: 400;
+    font-size: 13px;
+    color: gray;
+}
+
+#login-box #buttons {
+    width: 250px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 20px;
+    /* background-color: red; */
+}
+
+#login-box #buttons #sign-in-submit {
+    width: 135px;
+    height: 45px;
+    border: none;
+    font-family: Raleway;
+    font-weight: 600;
+    font-size: 16px;
+    color: white;
+    background-color: royalblue;
+    border-radius: 5px;
+} 
+
+#login-box #sign-in-submit:hover {
+    opacity: 0.85;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#login-box #buttons #login-register-button {
+    padding: 0;
+    margin: auto 0;
+    margin-left: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    color: royalblue;
+    cursor: pointer;
+}
+
+/* -------------------------------------------------------------------------------------------------------------- */
+
+#register-box {
+    width: 350px;
+    height: 400px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(247, 247, 247);
+    z-index: 2000;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: none;
+}
+
+#register-box #logo-register {
+    width: 95px;
+    margin: 50px auto;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 35px;
+    border-bottom: 5px solid royalblue;
+}
+
+#loregistergin-box p {
+    font-size: 22px;
+    font-weight: 700;
+    padding-bottom: 12px;
+}
+
+#register-box #back {
+    font-size: 13px;
+    font-weight: 500;
+    padding-top: 7px;
+    color: #888787;
+}
+
+#register-box #close-register-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+    color: #888787;
+    cursor: pointer;
+}
+
+#register-box #sign-up-name, #register-box #sign-up-email, #register-box #sign-up-pwd {
+    position: relative;
+    width: 90%;
+    height: 42px;
+    border: none;
+    background: none;
+    border-bottom: 1px solid rgb(236, 236, 236);
+    font-size: 15px;
+    font-weight: 600;
+    color: rgb(77, 77, 77);
+    font-family: Raleway;
+    background-color: none;
+}
+
+#register-box #sign-up-name::placeholder, #register-box #sign-up-email::placeholder, #register-box #sign-up-pwd::placeholder {
+    opacity: 1;
+    font-weight: 400;
+    font-size: 13px;
+    color: gray;
+}
+
+#register-box #buttons {
+    width: 250px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 20px;
+    /* background-color: red; */
+}
+
+#register-box #buttons #sign-up-submit {
+    width: 135px;
+    height: 45px;
+    border: none;
+    font-family: Raleway;
+    font-weight: 600;
+    font-size: 16px;
+    color: white;
+    background-color: royalblue;
+    border-radius: 5px;
+} 
+
+#register-box #sign-up-submit:hover {
+    opacity: 0.85;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#register-box #buttons #register-login-button {
+    padding: 0;
+    margin: auto 0;
+    margin-left: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    color: royalblue;
+    cursor: pointer;
+}
+
