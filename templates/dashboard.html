@@ -3,6 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Untitled Document</title>
+<script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+<script type="text/javascript">
+	ui.start('#firebaseui-auth-container', {
+	  signInOptions: [
+		firebase.auth.EmailAuthProvider.PROVIDER_ID
+	  ]
+	  // Other config options...
+	});
+</script>
 <style>
 	.calendar-btn{
 		border: solid;
@@ -60,7 +70,7 @@
 </style>
 </head>
 
-<body onLoad="init()">
+<body>
 	<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-auth.js"></script>

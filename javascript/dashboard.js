@@ -1,12 +1,28 @@
 // JavaScript 
 var db = firebase.database()
-var user_id = "Username";
-var availability_ref = db.ref(user_id+"/Availability");
+var user_id = "";
 var availability = {};
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+	init();
+  } else {
+    window.alert("Not initialised");
+  }
+});
+
 
 
 function init(){
 	//window.alert("init");
+	var user = firebase.auth().currentUser;
+	if (user!=null){
+		user_id = user.uid;
+		var user_ref = db.ref('Users/'+user_id);
+	}
+	
+	var availability_ref = user_ref.child('Availability');
+	
 	availability_ref.on('value', function(snapshot){
 		//window.alert("init ref");
 		availability = snapshot.val();
@@ -57,7 +73,8 @@ function updateChanges(){
 	var update_btn = document.getElementById("update-changes");
 	update_btn.style.backgroundColor = "#B5B5B5";
 	var updates = {};
-	updates[user_id+"/Availability"] = availability;
+	//window.alert(user_id);
+	updates['Users/'+user_id+"/Availability"] = availability;
 	db.ref().update(updates, function(error){
 		if(error){
 			window.alert("Failed");

@@ -65,13 +65,26 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(err.message)
         })
         promise.then((user) => {
-            print (user)
-            var randomID = makeID()
-            DBref.child('Users').child(randomID).set({
+            var id = user.user.uid
+            //var randomID = makeID()
+			var availability = {
+				'mon-lunch': 'True',
+				'tue-lunch': 'True',
+				'wed-lunch': 'True',
+				'thu-lunch': 'True',
+				'fri-lunch': 'True',
+				'mon-aftsch': 'True',
+				'tue-aftsch': 'True',
+				'wed-aftsch': 'True',
+				'thu-aftsch': 'True',
+				'fri-aftsch': 'True'
+			}
+            DBref.child('Users').child(id).set({
                 'name': registerModalName.value,
-                'userID': randomID,
+                'userID': id,
                 'email': registerModalEmail.value,
-                'pwd': registerModalPwd.value
+                'pwd': registerModalPwd.value,
+				'Availability': availability
             })
             window.location = 'templates/dashboard.html'
         })
