@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<style>
+	.calendar-btn{
+		border: solid;
+		width: 100px;
+		height: 100px;
+		border-radius: 200px;
+		margin: 20px 10px;
+		background-color: none;
+	}
+	
+	.btn:focus{
+		outline: none;
+	}
+	
+	.calendar-btn:hover{
+		background-color: red;
+	}
+	
+	.calendar-btn:active{
+		background-color: #9C0002;
+	}
+	
+	#update-changes{
+		border: solid 1px;
+		background-color: #E2E2E2;
+		font-size: 20px;
+		padding: 10px 20px;
+		display: none;
+	}
+	
+	#calendar{
+		border: solid;
+		width: 617px;
+		margin: 0 auto;
+	}
+	
+	#container{
+		display: none;
+	}
+	
+	#loader {
+		border: 16px solid #f3f3f3; /* Light grey */
+		border-top: 16px solid #06C200; /* Blue */
+		border-radius: 50%;
+		width: 120px;
+		height: 120px;
+		animation: spin 2s linear infinite;
+	}
+
+	@keyframes spin {
+		0% { transform: rotate(0deg); }
+		100% { transform: rotate(360deg); }
+	}
+
+</style>
+</head>
+
+<body>
+	<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-database.js"></script>
+	<script>
+  	// Initialize Firebase
+  	var config = {
+    	apiKey: "AIzaSyAcgOHaFQpjPsTle58G1S4RBhFctczdLIk",
+    	authDomain: "peer-tutor-2c1c6.firebaseapp.com",
+    	databaseURL: "https://peer-tutor-2c1c6.firebaseio.com",
+    	projectId: "peer-tutor-2c1c6",
+    	storageBucket: "",
+    	messagingSenderId: "741724293002"
+  	};
+  	firebase.initializeApp(config);
+	</script>
+	
+	<div id="form">
+		<h2>Which subject do you want to learn?</h2>
+		<input type="text" name="subject" id="subject">
+		<h2>What is your preferred language?</h2>
+		<input type="text" name="language" id="language">
+		<button id="submit" onClick="submit()">Submit</button>
+			<div id="container">
+	<div id="calendar">
+		<button id="mon-lunch" class="calendar-btn btn end-btn-left" onClick="toggleColor()"></button>
+		<button id="tue-lunch" class="calendar-btn btn" onClick="toggleColor()"></button>
+		<button id="wed-lunch" class="calendar-btn btn" onClick="toggleColor()"></button>
+		<button id="thu-lunch" class="calendar-btn btn" onClick="toggleColor()"></button>
+		<button id="fri-lunch" class="calendar-btn btn end-btn-right" onClick="toggleColor()"></button>
+		<button id="mon-aftsch" class="calendar-btn btn end-btn-left" onClick="toggleColor()"></button>
+		<button id="tue-aftsch" class="calendar-btn btn" onClick="toggleColor()"></button>
+		<button id="wed-aftsch" class="calendar-btn btn" onClick="toggleColor()"></button>
+		<button id="thu-aftsch" class="calendar-btn btn" onClick="toggleColor()"></button>
+		<button id="fri-aftsch" class="calendar-btn btn end-btn-right" onClick="toggleColor()"></button>
+	</div>
+	<button id="update-changes" class="btn" onClick="updateChanges()">Update</button>
+	</div>
+	</div>
+	
+	<script type="text/javascript" src="../javascript/dashboard.js"></script>
+	<script type="text/javascript" src="../javascript/request.js"></script>
+</body>
+</html>

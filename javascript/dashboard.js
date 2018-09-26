@@ -5,6 +5,7 @@ var availability = {};
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
+	 window.alert(user.uid);
 	init();
   } else {
     window.alert("Not initialised");
@@ -29,6 +30,7 @@ function init(){
 		window.alert("val initialised");
 		changeBtnStat();
 	});
+	
 }
 
 function changeBtnStat(){
