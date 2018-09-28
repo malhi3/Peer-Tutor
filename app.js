@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 'pwd': registerModalPwd.value,
 				'Availability': availability
             })
-            window.location = 'templates/dashboard.html'
+            window.location = 'templates/tuteehome.html'
         })
     }
 
