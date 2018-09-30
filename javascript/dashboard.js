@@ -2,6 +2,10 @@
 var db = firebase.database()
 var user_id = "";
 var availability = {};
+var userAvailabilityRef;
+var storageRef = firebase.storage().ref();
+var usersRef = storageRef.child('users');
+
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
@@ -20,7 +24,13 @@ function init(){
 	if (user!=null){
 		user_id = user.uid;
 		var user_ref = db.ref('Users/'+user_id);
+		userAvailabilityRef = db.ref('Users/').child(user_id).child('Availability');
 	}
+	
+	var profileDiv = document.getElementById("profile");
+	usersRef.child(user_id).getDownloadURL().then(function(imgurl){
+		profileDiv.style.backgroundImage = "url("+imgurl+")";
+	});
 	
 	var availability_ref = user_ref.child('Availability');
 	

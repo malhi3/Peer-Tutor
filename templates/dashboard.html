@@ -53,6 +53,16 @@
 		display: none;
 	}
 	
+	#profile{
+		background-image: url("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png");
+		width: 50px;
+		height: 50px;
+		border-radius: 50px;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	
 	#loader {
 		border: 16px solid #f3f3f3; /* Light grey */
 		border-top: 16px solid #06C200; /* Blue */
@@ -73,6 +83,7 @@
 <body>
 	<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-storage.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-auth.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-database.js"></script>
 	<script>
@@ -82,12 +93,18 @@
     	authDomain: "peer-tutor-2c1c6.firebaseapp.com",
     	databaseURL: "https://peer-tutor-2c1c6.firebaseio.com",
     	projectId: "peer-tutor-2c1c6",
-    	storageBucket: "",
+    	storageBucket: "gs://peer-tutor-2c1c6.appspot.com",
     	messagingSenderId: "741724293002"
   	};
   	firebase.initializeApp(config);
 	</script>
 	<div id="loader"></div>
+	<div id="profile-upload">
+		<input type="file" id="profile-img-upload">
+		<button id="upload" onClick="uploadFile()">Upload</button>
+	</div>
+	<div id="profile">
+	</div>
 	<div id="container">
 	<div id="calendar">
 		<button id="mon-lunch" class="calendar-btn btn end-btn-left" onClick="toggleColor()"></button>
@@ -103,6 +120,20 @@
 	</div>
 	<button id="update-changes" class="btn" onClick="updateChanges()">Update</button>
 	</div>
+	<div id="langsubj">
+		<h2>Language(s) I Want To Teach In:</h2>
+		<p>(put a comma between each language)</p>
+		<input type="text" name="language" id="language" onKeyUp="commaSeparation()">
+		<div id="language-entered-tags"></div>
+
+		<h2>Subject(s) I Want To Teach:</h2>
+		<p>(put a comma between each subject)</p>
+		<input type="text" name="subject" id="subject" onKeyUp="commaSeparation()">
+		<div id="subject-entered-tags"></div>
+		<button id="save" onClick="saveChanges()">Save Changes</button>
+	</div>
 	<script type="text/javascript" src="../javascript/dashboard.js"></script>
+	<script type="text/javascript" src="../javascript/profileupload.js"></script>
+	<script type="text/javascript" src="../javascript/langsubj.js"></script>
 </body>
 </html>

@@ -1,17 +1,6 @@
 // JavaScript Document
 var db = firebase.database();
-var userid = "";
-var userAvailabilityRef;
 var session = "";
-
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-	 userid = user.uid;
-	 userAvailabilityRef = db.ref('Users/').child(userid).child('Availability');
-  } else {
-    window.alert("Not initialised");
-  }
-});
 
 function togglePopUp(){
 	var popUp = document.getElementById("popup-form");
@@ -33,9 +22,10 @@ function findTutor(){
 		for(var index in tutorsInSubject){
 			var sessionref = db.ref('Users').child(tutorsInSubject[index]).child('Availability').child(session);
 			sessionref.on('value', function(snapshot){
+				window.alert(snapshot.val()+" Teacher: "+tutorsInSubject[index]);
 				if(snapshot.val() == "True"){
 					window.alert("Session: "+session+" Teacher:"+tutorsInSubject[index]);
-					sessionref.set(userid);
+					sessionref.set(user_id);
 					userAvailabilityRef.child(session).set(tutorsInSubject[index]);
 					flag = false;
 				}
