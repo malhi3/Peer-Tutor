@@ -99,13 +99,13 @@
   	firebase.initializeApp(config);
 	</script>
 	<div id="loader"></div>
+	<div id="container">
 	<div id="profile-upload">
 		<input type="file" id="profile-img-upload">
 		<button id="upload" onClick="uploadFile()">Upload</button>
 	</div>
 	<div id="profile">
 	</div>
-	<div id="container">
 	<div id="calendar">
 		<button id="mon-lunch" class="calendar-btn btn end-btn-left" onClick="toggleColor()"></button>
 		<button id="tue-lunch" class="calendar-btn btn" onClick="toggleColor()"></button>
@@ -119,7 +119,6 @@
 		<button id="fri-aftsch" class="calendar-btn btn end-btn-right" onClick="toggleColor()"></button>
 	</div>
 	<button id="update-changes" class="btn" onClick="updateChanges()">Update</button>
-	</div>
 	<div id="langsubj">
 		<h2>Language(s) I Want To Teach In:</h2>
 		<p>(put a comma between each language)</p>
@@ -131,6 +130,7 @@
 		<input type="text" name="subject" id="subject" onKeyUp="commaSeparation()">
 		<div id="subject-entered-tags"></div>
 		<button id="save" onClick="saveChanges()">Save Changes</button>
+	</div>
 	</div>
 	<script type="text/javascript" src="../javascript/dashboard.js"></script>
 	<script type="text/javascript" src="../javascript/profileupload.js"></script>
