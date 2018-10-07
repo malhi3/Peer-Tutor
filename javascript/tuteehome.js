@@ -22,9 +22,10 @@ function findTutor(){
 		for(var index in tutorsInSubject){
 			var sessionref = db.ref('Users').child(tutorsInSubject[index]).child('Availability').child(session);
 			sessionref.on('value', function(snapshot){
-				window.alert(snapshot.val()+" Teacher: "+tutorsInSubject[index]);
+				//window.alert(snapshot.val()+" Teacher: "+tutorsInSubject[index]);
 				if(snapshot.val() == "True"){
 					window.alert("Session: "+session+" Teacher:"+tutorsInSubject[index]);
+					window.alert(user_id);
 					sessionref.set(user_id);
 					userAvailabilityRef.child(session).set(tutorsInSubject[index]);
 					flag = false;

@@ -24,10 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const loginModalEmail = document.getElementById('sign-in-email')
     const loginModalPwd = document.getElementById('sign-in-pwd')
+	const loginModalType = document.getElementById('signin-tutee-tutor-selection')
 
     const registerModalName = document.getElementById('sign-up-name')
     const registerModalEmail = document.getElementById('sign-up-email')
     const registerModalPwd = document.getElementById('sign-up-pwd')
+	const registerModalType = document.getElementById('signup-tutee-tutor-selection')
 
     const loginModalSubmit = document.getElementById('sign-in-submit')
     const registerModalSubmit = document.getElementById('sign-up-submit')
@@ -67,6 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
         promise.then((user) => {
             var id = user.user.uid
             //var randomID = makeID()
+			var tuteeOrTutor = registerModalType.options[registerModalType.selectedIndex].value
+			//window.alert(tuteeOrTutor)
 			var availability = {
 				'mon-lunch': 'True',
 				'tue-lunch': 'True',
@@ -84,9 +88,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 'userID': id,
                 'email': registerModalEmail.value,
                 'pwd': registerModalPwd.value,
-				'Availability': availability
+				'Availability': availability,
+				'userType': tuteeOrTutor
             })
-            window.location = 'templates/tuteehome.html'
+			if (tuteeOrTutor == 'Tutor'){
+            	window.location = 'templates/dashboard.html'
+			} else if (tuteeOrTutor == 'Tutee'){
+				window.location = 'templates/tuteehome.html'
+			}
         })
     }
 
@@ -97,7 +106,12 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         promise.then((user) => {
             console.log(user)
-            window.location = 'templates/dashboard.html'
+			var tuteeOrTutor = loginModalType.options[loginModalType.selectedIndex].value
+			if (tuteeOrTutor == 'Tutor'){
+            	window.location = 'templates/dashboard.html'
+			} else if (tuteeOrTutor == 'Tutee'){
+				window.location = 'templates/tuteehome.html'
+			}
         })
     }
 

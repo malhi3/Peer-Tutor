@@ -21,6 +21,9 @@
 		border-radius: 200px;
 		margin: 20px 10px;
 		background-color: none;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
 	}
 	
 	.btn:focus{
@@ -61,6 +64,7 @@
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
+		cursor: pointer;
 	}
 	
 	#loader {
@@ -100,12 +104,11 @@
 	</script>
 	<div id="loader"></div>
 	<div id="container">
-	<div id="profile-upload">
+	<div id="profile-upload" style="display: none;">
 		<input type="file" id="profile-img-upload">
 		<button id="upload" onClick="uploadFile()">Upload</button>
 	</div>
-	<div id="profile">
-	</div>
+	<div id="profile" onClick="toggleProfileUploadVis()"></div>
 	<div id="calendar">
 		<button id="mon-lunch" class="calendar-btn btn end-btn-left" onClick="toggleColor()"></button>
 		<button id="tue-lunch" class="calendar-btn btn" onClick="toggleColor()"></button>

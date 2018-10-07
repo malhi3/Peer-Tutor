@@ -6,9 +6,9 @@ var userAvailabilityRef;
 var storageRef = firebase.storage().ref();
 var usersRef = storageRef.child('users');
 
-
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
+	  window.alert("user");
 	 window.alert(user.uid);
 	init();
   } else {
@@ -48,6 +48,7 @@ function changeBtnStat(){
 	var loader = document.getElementById("loader");
 	var key = "";
 	var i = 1;
+	var class_sessions = {};
 	for(key in availability){
 		var btn_id = key;
 		var btn_val = availability[key];
@@ -58,8 +59,18 @@ function changeBtnStat(){
 			btn.style.backgroundColor = "none";
 		} else if (btn_val == "False") {
 			btn.style.backgroundColor = "red";
+		} else {
+			class_sessions[btn_val] = btn_id;
 		}
 		i+=1;
+	}
+	for(var btn_val in class_sessions){
+		usersRef.child(btn_val).getDownloadURL().then(function(imgurl){
+			var btn_id = class_sessions[btn_val];
+			var btn = document.getElementById(btn_id);
+			window.alert(btn_id);
+			btn.style.backgroundImage = "url("+imgurl+")";
+		});
 	}
 	div.style.display = "block";
 	loader.style.display = "none";
