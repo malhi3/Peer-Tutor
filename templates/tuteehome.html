@@ -52,6 +52,10 @@
 		cursor: pointer;
 	}
 	
+	#container{
+		display: none;
+	}
+	
 	#calendar{
 		width: 617px;
 		margin: 0 auto;
@@ -134,10 +138,13 @@
 	<div id="popup-form" style="display:none;">
 		<button id="close" class="btn" onClick="togglePopUp()">X</button>
 		<h1>Get a Tutor</h1>
-		<h2>Subject</h2>
-		<input type="text" name="subject" id="subject">
 		<h2>Preferred Language</h2>
-		<input type="text" name="language" id="language"><br>
+		<div id="language-selection"></div>
+		<!--<input type="text" name="subject" id="subject">!-->
+		<h2>Subject</h2>
+		<div id="subject-selection"></div>
+		<!--<input type="text" name="language" id="language">!-->
+		<br>
 		<button id="submit" onClick="findTutor()" class="btn">Find Tutor</button>
 	</div>
 	</div>

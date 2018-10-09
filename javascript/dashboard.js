@@ -8,8 +8,8 @@ var usersRef = storageRef.child('users');
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
-	  window.alert("user");
-	 window.alert(user.uid);
+	  //window.alert("user");
+	 //window.alert(user.uid);
 	init();
   } else {
     window.alert("Not initialised");
@@ -37,7 +37,7 @@ function init(){
 	availability_ref.on('value', function(snapshot){
 		//window.alert("init ref");
 		availability = snapshot.val();
-		window.alert("val initialised");
+		//window.alert("val initialised");
 		changeBtnStat();
 	});
 	
@@ -68,12 +68,12 @@ function changeBtnStat(){
 		usersRef.child(btn_val).getDownloadURL().then(function(imgurl){
 			var btn_id = class_sessions[btn_val];
 			var btn = document.getElementById(btn_id);
-			window.alert(btn_id);
+			//window.alert(btn_id);
 			btn.style.backgroundImage = "url("+imgurl+")";
 		});
 	}
-	div.style.display = "block";
 	loader.style.display = "none";
+	div.style.display = "block";
 }
 
 function toggleColor(){
