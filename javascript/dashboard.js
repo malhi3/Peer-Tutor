@@ -54,6 +54,7 @@ function changeBtnStat(){
 		var btn_val = availability[key];
 		//window.alert(i);
 		var btn = document.getElementById(btn_id);
+		var url = '';
 		if (btn_val == "True"){
 			//window.alert(btn_id);
 			btn.style.backgroundColor = "none";
@@ -61,19 +62,30 @@ function changeBtnStat(){
 			btn.style.backgroundColor = "red";
 		} else {
 			class_sessions[btn_val] = btn_id;
+			/*usersRef.child(btn_val).getDownloadURL().then(function(imgurl){
+				url=imgurl;
+			});
+			console.log(url);
+			btn.style.backgroundImage = "url("+url+")";*/
 		}
 		i+=1;
 	}
 	for(var btn_val in class_sessions){
-		usersRef.child(btn_val).getDownloadURL().then(function(imgurl){
-			var btn_id = class_sessions[btn_val];
-			var btn = document.getElementById(btn_id);
-			//window.alert(btn_id);
-			btn.style.backgroundImage = "url("+imgurl+")";
-		});
+		//console.log("(loop) Value: "+btn_val+" id: "+btn_id);
+		setImage(btn_val, class_sessions);
 	}
 	loader.style.display = "none";
 	div.style.display = "block";
+}
+
+function setImage(btn_val, class_sessions){
+	var url = usersRef.child(btn_val).getDownloadURL();
+	url.then(function(imgurl){
+		var btn_id = class_sessions[btn_val];
+		var btn = document.getElementById(btn_id);
+		console.log("(func) Value: "+btn_val+" id: "+btn_id);
+		btn.style.backgroundImage = "url("+imgurl+")";
+	});
 }
 
 function toggleColor(){
